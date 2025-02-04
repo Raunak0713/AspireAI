@@ -1,4 +1,3 @@
-```markdown
 # AspireAI ✨
 
 ## Project Description 📋  
@@ -33,6 +32,9 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 #### **Database Integration**  
 - [ ✅ ] Connected Convex as the real-time backend solution to enable efficient data storage and retrieval.  
 - [ ✅ ] Verified smooth synchronization between the frontend and backend with persistent data storage.
+#### **Landing Page**  
+- [ ✅ ] Completed the landing page layout with key sections like the hero section, features, and call to action.  
+- [ ✅ ] Ensured full responsiveness and fluid transitions for both light and dark mode users.
 
 ## Commits 📅  
 #### **Commit #1** : [Project Setup]  
@@ -49,4 +51,6 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 #### **Commit #5** : [Database Integration]  
 - Integrated Convex to serve as the backend for real-time data management.  
 - Tested and verified data synchronization to ensure smooth storage and retrieval processes.
-```
+#### **Commit #6** : [Landing Page]  
+- Developed the layout and content for the landing page to enhance user engagement.  
+- Applied CSS transitions to improve user experience and responsiveness across different devices.
