@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ClerkProvider } from "@clerk/nextjs"
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -24,8 +25,10 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${poppins.className} antialiased`}>
-          <Navbar />
-          {children}
+          <ThemeProvider attribute={"class"} defaultTheme="light" enableSystem disableTransitionOnChange>
+            <Navbar />
+            {children}  
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
