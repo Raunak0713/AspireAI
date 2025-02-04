@@ -57,7 +57,16 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             <ModeToggle />
-            <UserButton />
+            <div className='hidden md:flex'>
+              <UserButton appearance={{
+                elements : {
+                  avatarBox: "w-9 h-9"
+                }
+              }}/>
+            </div>
+            <div className='flex md:hidden'>
+              <UserButton />
+            </div>
           </SignedIn>
 
           <SignedOut>

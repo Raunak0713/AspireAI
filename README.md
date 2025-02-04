@@ -1,3 +1,4 @@
+```markdown
 # AspireAI ✨
 
 ## Project Description 📋  
@@ -28,7 +29,10 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - [ ✅ ] Integrated Clerk for secure user authentication, implemented custom routes, and ensured proper handling of user sessions and data flow.  
 #### **Dark Mode Implementation**  
 - [ ✅ ] Integrated dark mode functionality using `next-themes` for seamless theme switching.  
-- [ ✅ ] Enhanced the Navbar design to ensure compatibility with both light and dark modes.
+- [ ✅ ] Enhanced the Navbar design to ensure compatibility with both light and dark modes.  
+#### **Database Integration**  
+- [ ✅ ] Connected Convex as the real-time backend solution to enable efficient data storage and retrieval.  
+- [ ✅ ] Verified smooth synchronization between the frontend and backend with persistent data storage.
 
 ## Commits 📅  
 #### **Commit #1** : [Project Setup]  
@@ -41,4 +45,8 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - Created custom routes to control user access and improve the navigation structure for authenticated users.  
 #### **Commit #4** : [Dark Mode & Navbar Enhancement]  
 - Implemented `next-themes` to provide a user-friendly dark mode option throughout the app.  
-- Updated the Navbar styles and components for a consistent appearance across themes.
+- Updated the Navbar styles and components for a consistent appearance across themes.  
+#### **Commit #5** : [Database Integration]  
+- Integrated Convex to serve as the backend for real-time data management.  
+- Tested and verified data synchronization to ensure smooth storage and retrieval processes.
+```

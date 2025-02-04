@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { ClerkProvider } from "@clerk/nextjs"
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import ConvexClerkProvider from "@/providers/ConvexClerkProvider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ConvexClerkProvider>
       <html lang="en">
         <body className={`${poppins.className} antialiased`}>
           <ThemeProvider attribute={"class"} defaultTheme="light" enableSystem disableTransitionOnChange>
@@ -31,6 +31,6 @@ export default function RootLayout({
           </ThemeProvider>
         </body>
       </html>
-    </ClerkProvider>
+    </ConvexClerkProvider>
   );
 }
