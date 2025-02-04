@@ -35,6 +35,8 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 #### **Landing Page**  
 - [ ✅ ] Completed the landing page layout with key sections like the hero section, features, and call to action.  
 - [ ✅ ] Ensured full responsiveness and fluid transitions for both light and dark mode users.
+#### **Features Section**
+- [ ✅ ] Created Features Section with ShadCN cards and Lucide icons for each feature.
 
 ## Commits 📅  
 #### **Commit #1** : [Project Setup]  
@@ -54,3 +56,6 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 #### **Commit #6** : [Landing Page]  
 - Developed the layout and content for the landing page to enhance user engagement.  
 - Applied CSS transitions to improve user experience and responsiveness across different devices.
+#### ** Commit #7** : [Features Section]
+- Created a new Features Section layout using ShadCN cards for better visual organization.
+- Integrated Lucide icons to represent each feature, improving the clarity and engagement of the section.

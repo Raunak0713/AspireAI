@@ -51,7 +51,10 @@ const HeroSection = () => {
             </Button>
           </Link>
           <Link href={"/dashboard"}>
-            <Button variant={"outline"} size={"lg"}>Get Started</Button>
+            <Button variant={"outline"} size={"lg"}>
+              Get Started
+              <ChevronRight />
+            </Button>
           </Link>
         </div>
 

@@ -17,7 +17,7 @@ const Navbar = () => {
           <div className='block md:hidden'>
             <Brain size={30}/>
           </div>
-          <p className='text-xl md:text-2xl'>AspireAI</p>
+          <p className='text-xl font-semibold md:text-2xl'>AspireAI</p>
         </div>
         <div className='flex items-center space-x-2.5 md:space-x-5'>
           <SignedIn>
