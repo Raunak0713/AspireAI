@@ -41,6 +41,12 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - [ ✅ ] Incorporated user reviews for credibility
 - [ ✅ ] Included Frequently Asked Questions for better user guidance
 - [ ✅ ] Detailed the "How It Works" section for seamless navigation
+#### **Database Design**  
+- [ ✅ ] Designed Users Schema for managing user details, including authentication and profile information.  
+- [ ✅ ] Designed Industry Insights Schema to store industry-specific data like salary ranges, growth rates, and trends.  
+- [ ✅ ] Designed Cover Letters Schema for storing user-generated cover letter drafts and completed versions.  
+- [ ✅ ] Designed Resumes Schema to manage user resumes along with ATS scores and feedback.  
+- [ ✅ ] Designed Assessments Schema for storing quiz scores, categories, and improvement tips.  
 
 
 ## Commits 📅  
@@ -67,3 +73,6 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 #### **Commit #8** : [Features Section Enhancement]
 - Redesigned the Features Section using ShadCN cards to present information in a visually appealing format.
 -Added Lucide icons to represent features, enhancing clarity and user interaction.
+#### **Commit #9** : [Database Design Completion]  
+- Finalized the design of all key database schemas, ensuring optimal structure and efficient data storage.
+- Indexed relevant fields to improve query performance and data retrieval speed.
