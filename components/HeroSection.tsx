@@ -1,4 +1,5 @@
 'use client'
+
 import Link from 'next/link'
 import React, { useEffect, useRef } from 'react'
 import { Button } from './ui/button'
@@ -9,6 +10,7 @@ import { ChevronRight } from 'lucide-react'
 const HeroSection = () => {
   const { resolvedTheme } = useTheme()
   const imageRef = useRef<HTMLImageElement | null>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       const imageElement = imageRef.current;
@@ -33,7 +35,7 @@ const HeroSection = () => {
     <section className='px-4 md:px-0 w-full pt-36 md:pt-48 pb-10'>
       <div className='space-y-6 text-center'>
         <div className='space-y-6 mx-auto'>
-          <h1 className={`text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl ${resolvedTheme === 'dark' ? 'gradient-title-dark' : 'gradient-title-light'}`}>
+          <h1 className={`text-5xl font-bold md:text-5xl lg:text-6xl xl:text-7xl ${resolvedTheme === 'dark' ? 'gradient-title-dark' : 'gradient-title-light'}`}>
             Your AI Career Coach for
             <br />
             Professional Success
