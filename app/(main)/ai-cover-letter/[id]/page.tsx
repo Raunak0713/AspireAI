@@ -1,12 +1,6 @@
 import React from 'react'
 
-interface CoverLetterProps {
-  params : {
-    id : string
-  }
-}
-
-const CoverLetter = async  ({ params } : CoverLetterProps) => {
+const CoverLetter = async ({ params }: { params: { id: string } }) => {
   const id = params.id
   return (
     <div className='flex items-center justify-center h-screen'>{id}</div>
