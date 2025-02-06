@@ -1,5 +1,7 @@
 import { v } from "convex/values"
 import { mutation, query } from "./_generated/server"
+import { api } from "./_generated/api"
+import { Doc } from "./_generated/dataModel";
 
 export const createUser = mutation({
   args : {
@@ -34,3 +36,26 @@ export const getUserByClerkId = query({
   } 
 })
 
+export const updateUserDetails = mutation({
+  args : {
+    clerkId : v.string(),
+    industry : v.string(),
+    experience : v.number(),
+    bio : v.string(),
+    skills : v.array(v.string())
+  },
+  handler : async (ctx, args) : Promise<Doc<"users">> => {
+    const user : Doc<"users"> | null = await ctx.runQuery(api.user.getUserByClerkId, { clerkId : args.clerkId })
+    if(!user) throw new Error("User not found")
+
+    await ctx.db.patch(user._id, {
+      industry: args.industry,
+      experience: args.experience,
+      bio: args.bio,
+      skills: args.skills,
+      updatedAt: Date.now()
+    });
+
+    return user
+  },
+})

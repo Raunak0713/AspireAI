@@ -55,6 +55,10 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - [ ✅ ] Set Up Interview Route
 - [ ✅ ] Set Up Mock Interview Route
 - [ ✅ ] Set Up Onboarding Route
+#### **Onboarding Route and Onboarding Form Backend**
+- [ ✅ ] Set Up Onboarding Route
+- [ ✅ ] Created the AI Cover Letter template
+- [ ✅ ] Completed the user onboarding backend tasks
 
 
 ## Commits 📅  
@@ -92,3 +96,7 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - Established the Interview Route to streamline the scheduling and management of user interviews.
 - Developed the Mock Interview Route to facilitate AI-driven practice interviews.
 - Implemented the Onboarding Route to enhance user onboarding experience and guide users through initial app usage.
+#### **Commit #12** : [Onboarding Route & AI Cover Letter Integration]
+- Set up the Onboarding Route to streamline the user registration process.
+- Created an AI-driven Cover Letter template generator for personalized content creation.
+- Completed backend tasks for user onboarding, including form handling and data persistence.
