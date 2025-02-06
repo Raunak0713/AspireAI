@@ -1,10 +1,13 @@
-import React from 'react'
+"use client"
+import { useParams } from 'next/navigation'
 
-const CoverLetter = async ({ params }: { params: { id: string } }) => {
-  const id = params.id
+export default function CoverLetterPage() {
+  const params = useParams()
+  const id = params.id // Access the id parameter
+
   return (
-    <div className='flex items-center justify-center h-screen'>{id}</div>
+    <div className='flex items-center justify-center h-screen'>
+      Cover Letter ID: {id}
+    </div>
   )
 }
-
-export default CoverLetter
