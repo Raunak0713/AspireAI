@@ -3,10 +3,10 @@ import { v } from 'convex/values'
 
 export default defineSchema({
   users: defineTable({
-    clerkUserId: v.string(),
+    clerkId : v.string(),
     email: v.string(),
     name: v.optional(v.string()),
-    imageUrl: v.optional(v.string()),
+    profileImg : v.optional(v.string()),
     industry: v.optional(v.string()),
     industryInsightId: v.optional(v.id("industryInsights")),
     bio: v.optional(v.string()),
@@ -15,7 +15,7 @@ export default defineSchema({
     createdAt: v.number(),
     updatedAt: v.number(),
   })
-    .index("by_clerkUserId", ["clerkUserId"])
+    .index("by_clerkUserId", ["clerkId"])
     .index("by_email", ["email"])
     .index("by_industry", ["industry"]),
 

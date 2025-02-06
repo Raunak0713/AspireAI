@@ -3,16 +3,16 @@ import { mutation, query } from "./_generated/server"
 
 export const createUser = mutation({
   args : {
-    clerkUserId : v.string(),
+    clerkId : v.string(),
     name : v.string(),
-    imageUrl : v.string(),
+    profileImg : v.string(),
     email : v.string()
   },
   handler : async (ctx, args) => {
     const newUser = await ctx.db.insert("users", {
-      clerkUserId : args.clerkUserId,
+      clerkId : args.clerkId,
       email : args.email,
-      imageUrl : args.imageUrl,
+      profileImg : args.profileImg,
       createdAt : Date.now(),
       updatedAt : Date.now(),
     });
@@ -20,16 +20,17 @@ export const createUser = mutation({
   },
 })
 
-export const existingUserByClerkID = query({
+export const getUserByClerkId = query({
   args : {
-    clerkUserId : v.string(),
+    clerkId : v.string(),
   },
   handler : async (ctx, args) => {
-    const user = await ctx.db
+    const user = await ctx.db 
       .query("users")
-      .filter((q) => q.eq(q.field("clerkUserId"), args.clerkUserId))
+      .filter((q) => q.eq(q.field("clerkId"), args.clerkId))
       .first()
-    if(user) return true
-    return false
-  }
+
+    return user || null
+  } 
 })
+

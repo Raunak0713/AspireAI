@@ -1,4 +1,4 @@
-# AspireAI ✨
+<h1 align="center">AspireAI ✨</h1>
 
 ## Project Description 📋  
 AspireAI is a powerful platform designed to help users boost their productivity and improve their job application experience. The app integrates cutting-edge AI features, such as interactive quizzes, performance analytics, and automated cover letter generation, to provide users with a smooth, intelligent experience.
@@ -51,6 +51,11 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - [ ✅ ] Create User Mutation
 - [ ✅ ] Existing User By Clerk ID Quer
 - [ ✅ ] Check route to sync clerk with database
+#### **Application Route**
+- [ ✅ ] Set Up Interview Route
+- [ ✅ ] Set Up Mock Interview Route
+- [ ✅ ] Set Up Onboarding Route
+
 
 ## Commits 📅  
 #### **Commit #1** : [Project Setup]  
@@ -83,3 +88,7 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - Developed Create User Mutation to enable seamless user creation in the database.  
 - Added Query to fetch existing users by Clerk ID for efficient data retrieval.  
 - Implemented route to sync Clerk with the database, ensuring data consistency.  
+#### **Commit #11** : [Interview & Onboarding Routes Setup]
+- Established the Interview Route to streamline the scheduling and management of user interviews.
+- Developed the Mock Interview Route to facilitate AI-driven practice interviews.
+- Implemented the Onboarding Route to enhance user onboarding experience and guide users through initial app usage.
