@@ -38,11 +38,12 @@ const HeroSection = () => {
     checkOnboardingStatus();
   }, [router]);
 
-  
-  if (loading) {
-    return <div>Loading...</div>;
+  // Ensure actions are only performed once onboarding status is confirmed
+  if (loading || isOnboarded === null) {
+    return <div>Loading...</div>; // Or a loading spinner/indicator
   }
 
+  // Now that onboarding status is confirmed, proceed with other actions
   return (
     <section className='px-4 md:px-0 w-full pt-36 md:pt-48 pb-10'>
       <div className='space-y-6 text-center'>
