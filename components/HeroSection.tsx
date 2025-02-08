@@ -1,35 +1,47 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { Button } from './ui/button'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { ChevronRight } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { getUserOnboardingStatus } from '@/actions/user'
 
 const HeroSection = () => {
   const { resolvedTheme } = useTheme()
   const imageRef = useRef<HTMLImageElement | null>(null);
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [isOnboarded, setIsOnboarded] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const imageElement = imageRef.current;
-
-      if (imageElement) {
-        const scrollPosition = window.scrollY;
-        const scrollThreshold = 100;
-
-        if (scrollPosition > scrollThreshold) {
-          imageElement.classList.add("scrolled");
+    const checkOnboardingStatus = async () => {
+      try {
+        const response = await getUserOnboardingStatus()
+        
+        // If the user is not onboarded, redirect to onboarding page
+        if (!response.IsOnboarded) {
+          router.push('/onboarding');
         } else {
-          imageElement.classList.remove("scrolled");
+          setIsOnboarded(true);
         }
+      } catch (error) {
+        console.error("Error checking onboarding status:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    checkOnboardingStatus();
+  }, [router]);
+
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section className='px-4 md:px-0 w-full pt-36 md:pt-48 pb-10'>
