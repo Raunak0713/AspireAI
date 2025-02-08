@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import ConvexClerkProvider from "@/providers/ConvexClerkProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -31,6 +32,7 @@ export default function RootLayout({
           <ThemeProvider attribute={"class"} defaultTheme="light" enableSystem disableTransitionOnChange>
             <Navbar />
             {children}  
+            <Toaster /> 
           </ThemeProvider>
         </body>
       </html>

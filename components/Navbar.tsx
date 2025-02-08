@@ -10,7 +10,8 @@ const Navbar = () => {
   return (
     <header className='md:py-1 px-3 md:px-5  fixed top-0 w-full border-b backdrop-blur-md z-50 supports-[backdrop-filter]'>
       <nav className='h-16 flex items-center justify-between'>
-        <div className='flex items-center gap-1'>
+        <Link href={"/"}>
+        <div className='flex items-center gap-1' >
           <div className='hidden md:block'>
             <Brain size={38}/>
           </div>
@@ -19,6 +20,7 @@ const Navbar = () => {
           </div>
           <p className='text-xl font-semibold md:text-2xl'>AspireAI</p>
         </div>
+        </Link>
         <div className='flex items-center space-x-2.5 md:space-x-5'>
           <SignedIn>
             <Link href={"/dashboard"}>

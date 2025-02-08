@@ -172,7 +172,7 @@ export const industries = [
   },
   {
     id: "telecom",
-    name: "Telecommunications",
+    name: "Tele Communications",
     subIndustries: [
       "Wireless Communications",
       "Network Infrastructure",

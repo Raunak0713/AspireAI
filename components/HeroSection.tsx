@@ -70,6 +70,7 @@ const HeroSection = () => {
               width={1280}
               height={720}
               className='rounded-lg shadow-2xl border mx-auto'
+              priority
             />
           </div>
         </div>
