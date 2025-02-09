@@ -50,7 +50,8 @@ const updateUser = async ({ data }: updateUserProps) => {
 
 const getUserOnboardingStatus = async () => {
   const { userId } = await auth();
-  if (!userId) throw new Error("Unauthorized");
+  if (!userId)  return { IsOnboarded: false };
+  
 
   const user = await fetchQuery(api.user.getUserByClerkId, { clerkId: userId });
   if (!user) throw new Error("No user found");

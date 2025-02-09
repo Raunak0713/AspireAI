@@ -1,47 +1,41 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import React, { useRef } from 'react'
 import { Button } from './ui/button'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { ChevronRight } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { getUserOnboardingStatus } from '@/actions/user'
+
 
 const HeroSection = () => {
   const { resolvedTheme } = useTheme()
   const imageRef = useRef<HTMLImageElement | null>(null);
-  const router = useRouter();
-  const [loading, setLoading] = useState(true);
-  const [isOnboarded, setIsOnboarded] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const checkOnboardingStatus = async () => {
-      try {
-        const response = await getUserOnboardingStatus()
+  // useEffect(() => {
+  //   const checkOnboardingStatus = async () => {
+  //     try {
+  //       const response = await getUserOnboardingStatus()
         
-        // If the user is not onboarded, redirect to onboarding page
-        if (!response.IsOnboarded) {
-          router.push('/onboarding');
-        } else {
-          setIsOnboarded(true);
-        }
-      } catch (error) {
-        console.error("Error checking onboarding status:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       // If the user is not onboarded, redirect to onboarding page
+  //       if (!response.IsOnboarded) {
+  //         router.push('/onboarding');
+  //       } else {
+  //         setIsOnboarded(true);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error checking onboarding status:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    checkOnboardingStatus();
-  }, [router]);
+  //   checkOnboardingStatus();
+  // }, [router]);
 
-  // Ensure actions are only performed once onboarding status is confirmed
-  if (loading || isOnboarded === null) {
-    return <div>Loading...</div>; // Or a loading spinner/indicator
-  }
+  // // Ensure actions are only performed once onboarding status is confirmed
+  // if (loading || isOnboarded === null) {
+  //   return <div>Loading...</div>; // Or a loading spinner/indicator
+  // }
 
   // Now that onboarding status is confirmed, proceed with other actions
   return (

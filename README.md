@@ -59,10 +59,13 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - [ ✅ ] Set Up Onboarding Route
 - [ ✅ ] Created the AI Cover Letter template
 - [ ✅ ] Completed the user onboarding backend tasks
-#### **User OnboardingSetup and Custom Flow**
+#### **User Onboarding Setup and Custom Flow**
 - [ ✅ ] Users will complete a dedicated onboarding form for profile setup.
 - [ ✅ ] Utilized Zod to enforce type-safe validation schema.
 - [ ✅ ] Successfully integrated user profile updates with the database.
+#### **Onboarding Behavior Improvements**
+- [ ✅ ] Resolved the issue where the hero section was not visible
+- [ ✅ ] Implemented additional checks to ensure users complete onboarding before exploring the website
 
 
 ## Commits 📅  
@@ -108,3 +111,6 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - Developed a dedicated onboarding form for user profile completion.
 - Integrated Zod to enforce type-safe schema validation for form inputs.
 - Implemented backend integration to persist user profile updates in the database.
+#### **Commit #14** : [Onboarding Checks & UI Enhancements]
+- Fixed the issue where the hero section was not displaying properly.
+- Added robust checks to ensure users complete onboarding before exploring the website.
