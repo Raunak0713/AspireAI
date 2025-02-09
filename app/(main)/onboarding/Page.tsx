@@ -4,8 +4,8 @@ import { industries } from '@/data/industries';
 export default function OnboardingPage() {
   
   return (
-    <main>
-      <OnboardingForm industries={industries} />
-    </main>
+    <div>
+      Hey
+    </div>
   );
 }
