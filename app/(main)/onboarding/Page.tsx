@@ -1,10 +1,9 @@
-import { industries } from "@/data/industries";
-import OnboardingForm from "@/components/onboarding-form";
+import React from 'react'
 
-export default function OnboardingPage() {
+const OnboardingPage = () => {
   return (
-    <div>
-      <OnboardingForm industries={industries}/>
-    </div>
-  );
+    <div>Onboarding Page</div>
+  )
 }
+
+export default OnboardingPage
