@@ -41,7 +41,7 @@ interface OnboardingFormProps {
   industries: Industry[];
 }
 
-const OnboardingForm = ({ industries }: OnboardingFormProps) => {
+const onboardingForm = ({ industries }: OnboardingFormProps) => {
   const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(null);
   const [updateLoading, setUpdateLoading] = useState(false);
   const { resolvedTheme } = useTheme();
@@ -224,4 +224,4 @@ const OnboardingForm = ({ industries }: OnboardingFormProps) => {
   );
 };
 
-export default OnboardingForm;
+export default onboardingForm;

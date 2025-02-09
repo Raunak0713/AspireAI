@@ -4,7 +4,7 @@ import OnboardingForm from './_components/onboardingForm'
 // import { getUserOnboardingStatus } from '@/actions/user'
 // import { redirect } from 'next/navigation'
 
-const OnboardingPage = () => {
+const onboardingPage = () => {
   return (
     <main>
       <OnboardingForm industries={industries}/>
@@ -12,4 +12,4 @@ const OnboardingPage = () => {
   )
 }
 
-export default OnboardingPage
+export default onboardingPage
