@@ -1,9 +1,12 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     domains: ['randomuser.me'],
   },
-};
+  // Add this to ensure client-side navigation works properly
+  async redirects() {
+    return [];
+  },
+}
 
-export default nextConfig;
+module.exports = nextConfig

@@ -71,7 +71,6 @@ const OnboardingForm = ({ industries }: OnboardingFormProps) => {
       });
       toast.success("Profile Completed Successfully");
       router.push("/dashboard");
-      router.refresh();
     } catch (error) {
       console.error("Onboarding Error", error);
       toast.error("Failed to update profile. Please check your inputs.");
