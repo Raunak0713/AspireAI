@@ -1,11 +1,11 @@
 "use client";
 
 import { Industry } from "@/types/industry";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Add useEffect
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { onboardingSchema } from "@/lib/zodSchema";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -45,13 +45,19 @@ const OnboardingForm = ({ industries }: OnboardingFormProps) => {
   const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(null);
   const [updateLoading, setUpdateLoading] = useState(false);
   const { resolvedTheme } = useTheme();
-  const router = useRouter();
+  // const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false); // Add mounted state
 
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<OnboardingFormValues>({
     resolver: zodResolver(onboardingSchema),
   });
 
   const watchIndustry = watch("industry");
+
+  // Check if the component is mounted
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const onSubmit = async (values: OnboardingFormValues) => {
     try {
@@ -62,15 +68,19 @@ const OnboardingForm = ({ industries }: OnboardingFormProps) => {
       const formattedIndustry = `${values.industry}-${values.subIndustry.toLowerCase().replace(/ /g, "-")}`;
       setUpdateLoading(true);
       await updateUser({
-        data : {
-          industry : formattedIndustry,
-          experience : values.experience,
-          bio : values.bio,
-          skills : values.skills
-        }
+        data: {
+          industry: formattedIndustry,
+          experience: values.experience,
+          bio: values.bio,
+          skills: values.skills,
+        },
       });
       toast.success("Profile Completed Successfully");
-      router.push("/dashboard");
+
+      // Ensure router is mounted before pushing
+      if (isMounted) {
+        // router.push("/dashboard");
+      }
     } catch (error) {
       console.error("Onboarding Error", error);
       toast.error("Failed to update profile. Please check your inputs.");
@@ -78,6 +88,10 @@ const OnboardingForm = ({ industries }: OnboardingFormProps) => {
       setUpdateLoading(false);
     }
   };
+
+  if (!isMounted) {
+    return null; // Render nothing until the component is mounted
+  }
 
   return (
     <div className="flex items-center justify-center">

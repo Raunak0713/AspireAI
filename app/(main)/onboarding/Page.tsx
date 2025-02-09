@@ -1,16 +1,10 @@
-import { redirect } from "next/navigation";
-import { industries } from "@/data/industries";
-import { getUserOnboardingStatus } from "@/actions/user";
-import OnboardingForm from "./_components/onboarding-form";
+import OnboardingForm from './_components/onboarding-form';
+import { industries } from '@/data/industries';
 
-export default async function OnboardingPage() {
-  // Check if user is already onboarded
-  const { IsOnboarded } = await getUserOnboardingStatus();
+export const dynamic = 'force-dynamic';
 
-  if (IsOnboarded) {
-    redirect("/dashboard");
-  }
-
+export default function OnboardingPage() {
+  
   return (
     <main>
       <OnboardingForm industries={industries} />
