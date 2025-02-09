@@ -7,7 +7,7 @@ interface MainLayoutProps {
 const MainLayout = async ({ children } : MainLayoutProps) => {
   return(
     <div className="mx-auto mt-24 mb-20">
-      {children}
+      { children }
     </div>
   );
 };
