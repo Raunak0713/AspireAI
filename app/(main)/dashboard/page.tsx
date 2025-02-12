@@ -1,9 +1,9 @@
 import { getUserOnboardingStatus } from "@/actions/user"
-import { redirect } from "next/navigation"
+import pushTo from "@/lib/pushTo"
 
 const IndustryInsightsPage = async () => {
   const { IsOnboarded } = await getUserOnboardingStatus()
-  if(!IsOnboarded) redirect("/onboarding")
+  if(!IsOnboarded) pushTo("onboarding")
   return (
     <div>
       IndustryInsightsPage

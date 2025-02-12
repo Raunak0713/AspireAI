@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react"; // Add useEffect
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { onboardingSchema } from "@/lib/zodSchema";
-// import { useRouter } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -28,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import { updateUser } from "@/actions/user";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import pushTo from "@/lib/pushTo";
 
 interface OnboardingFormValues {
   industry: string;
@@ -76,11 +76,7 @@ const OnboardingForm = ({ industries }: OnboardingFormProps) => {
         },
       });
       toast.success("Profile Completed Successfully");
-
-      // Ensure router is mounted before pushing
-      if (isMounted) {
-        // router.push("/dashboard");
-      }
+      pushTo("dashboard")
     } catch (error) {
       console.error("Onboarding Error", error);
       toast.error("Failed to update profile. Please check your inputs.");

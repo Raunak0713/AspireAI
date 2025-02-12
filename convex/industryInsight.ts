@@ -15,22 +15,22 @@ export const findUnique = query({
 })
 
 export const create = mutation({
-  args : {
-    industry : v.string()
+  args: {
+    industry: v.string(),
+    salaryRanges: v.any(),
+    growthRate: v.number(),
+    demandLevel: v.union(v.literal("High"), v.literal("Medium"), v.literal("Low")),
+    topSkills: v.array(v.string()),
+    marketOutlook: v.union(v.literal("Positive"), v.literal("Neutral"), v.literal("Negative")),
+    keyTrends: v.array(v.string()),
+    recommendedSkills: v.array(v.string()),
+    nextUpdate: v.number(),
   },
-  handler : async(ctx, args) => {
-    const industry = ctx.db.insert("industryInsights", {
-      industry : args.industry,
-      salaryRanges : [],
-      growthRate : 0,
-      demandLevel : "Medium",
-      topSkills : [],
-      marketOutlook : "Neutral",
-      keyTrends : [],
-      recommendedSkills : [],
-      lastUpdated : Date.now(),
-      nextUpdate : (Date.now() + (7*24*60*60*1000))
-    })
-    return industry
+  handler: async (ctx, args) => {
+    const industryId = await ctx.db.insert("industryInsights", {
+      ...args,
+      lastUpdated: Date.now(),
+    });
+    return await ctx.db.get(industryId);
   },
-})
+});

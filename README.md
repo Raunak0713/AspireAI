@@ -66,6 +66,10 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 #### **Onboarding Behavior Improvements**
 - [ ✅ ] Resolved the issue where the hero section was not visible
 - [ ✅ ] Implemented additional checks to ensure users complete onboarding before exploring the website
+#### **Industry Insight Page**
+- [ ✅ ] Developed the Industry Insights page
+- [ ✅ ] Built the Dashboard page
+- [ ✅ ] Integrated AI to generate industry insights
 
 
 ## Commits 📅  
@@ -114,3 +118,7 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 #### **Commit #14** : [Onboarding Checks & UI Enhancements]
 - Fixed the issue where the hero section was not displaying properly.
 - Added robust checks to ensure users complete onboarding before exploring the website.
+#### **Commit #15** : [AI Integration, Industry Insights, Dashboard Implementation]  
+- Developed the Industry Insights page.  
+- Built the Dashboard page.  
+- Integrated AI to generate industry insights.  

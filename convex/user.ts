@@ -59,3 +59,8 @@ export const updateUserDetails = mutation({
     return user
   },
 })
+
+export const updateOldUser = mutation({
+  args : {},
+  handler : async (ctx, args) => {}
+})

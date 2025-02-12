@@ -3,6 +3,7 @@
 import { api } from "@/convex/_generated/api"
 import { auth } from "@clerk/nextjs/server"
 import { fetchMutation, fetchQuery } from 'convex/nextjs'
+import { generateAiInsights } from "./dashboard"
 
 interface updateUserProps {
   data: {
@@ -30,7 +31,13 @@ const updateUser = async ({ data }: updateUserProps) => {
 
     let industryInsights = await fetchQuery(api.industryInsight.findUnique, { industry: data.industry });
     if (!industryInsights) {
-      await fetchMutation(api.industryInsight.create, { industry: data.industry });
+      const insights = await generateAiInsights(data.industry!)
+      
+      industryInsights = await fetchMutation(api.industryInsight.create, {
+        industry : data.industry,
+        ...insights,
+        nextUpdate : Date.now() + 7 * 24 * 60 * 60 * 1000
+      })
     }
 
     const updatedUser = await fetchMutation(api.user.updateUserDetails, {
@@ -52,7 +59,6 @@ const getUserOnboardingStatus = async () => {
   const { userId } = await auth();
   if (!userId)  return { IsOnboarded: false };
   
-
   const user = await fetchQuery(api.user.getUserByClerkId, { clerkId: userId });
   if (!user) throw new Error("No user found");
 
