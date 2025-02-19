@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+import { Id } from "./_generated/dataModel";
 
 export const findUnique = query({
   args : {
@@ -11,6 +12,15 @@ export const findUnique = query({
       .filter((q) => q.eq(q.field("industry"), args.industry))
       .first()
     return industry || null
+  }
+})
+
+export const get = query({
+  args : {
+    insightId : v.id("industryInsights")
+  },
+  handler : async(ctx, args) => {
+    return ctx.db.get(args.insightId)
   }
 })
 

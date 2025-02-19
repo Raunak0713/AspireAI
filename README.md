@@ -70,6 +70,11 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - [ ✅ ] Developed the Industry Insights page
 - [ ✅ ] Built the Dashboard page
 - [ ✅ ] Integrated AI to generate industry insights
+#### **Enhanced Dashboard with Recharts Integration and TypeScript Typing**  
+- [ ✅ ] Designed and implemented a comprehensive dashboard page for better user experience  
+- [ ✅ ] Integrated Recharts to present industry insights through visually appealing data visualizations  
+- [ ✅ ] Defined and structured TypeScript types for Salary, Insights, and Industry to ensure type safety and scalability  
+
 
 
 ## Commits 📅  
@@ -122,3 +127,8 @@ AspireAI is a powerful platform designed to help users boost their productivity 
 - Developed the Industry Insights page.  
 - Built the Dashboard page.  
 - Integrated AI to generate industry insights.  
+#### **Commit #16** : [Enhanced Dashboard, Recharts Integration, TypeScript Typing]  
+- Refined the Dashboard page for improved user experience.  
+- Integrated Recharts for dynamic and visually appealing data representation.  
+- Structured and implemented TypeScript types for Salary, Insights, and Industry to enhance type safety and maintainability.  
+

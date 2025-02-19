@@ -2,15 +2,26 @@
 
 import { api } from "@/convex/_generated/api";
 import { Doc } from "@/convex/_generated/dataModel";
-import { Industry } from "@/types/industry";
-import { auth } from "@clerk/nextjs/server"
+import { auth } from "@clerk/nextjs/server";
 import { fetchMutation, fetchQuery } from "convex/nextjs";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { Insight } from "@/types/insight";
+import { Salary } from "@/types/salary";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-export const generateAiInsights = async (industry : string) => {
+interface AiInsightResponse {
+  salaryRanges: Salary[];
+  growthRate: number;
+  demandLevel: "High" | "Medium" | "Low";
+  topSkills: string[];
+  marketOutlook: "Positive" | "Neutral" | "Negative";
+  keyTrends: string[];
+  recommendedSkills: string[];
+}
+
+export const generateAiInsights = async (industry: string): Promise<AiInsightResponse> => {
   const prompt = `
     Analyze the current state of the ${industry} industry and provide insights in ONLY the following JSON format without any additional notes or explanations:
     {
@@ -36,26 +47,36 @@ export const generateAiInsights = async (industry : string) => {
   const text = response.text();
   const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
 
-  return JSON.parse(cleanedText);
+  return JSON.parse(cleanedText) as AiInsightResponse;
 }
 
-export const getIndustryInsights = async () => {
+export const getIndustryInsights = async (): Promise<Insight | undefined> => {
   const { userId } = await auth();
-  if(!userId) throw new Error("Unauthorized")
+  if (!userId) throw new Error("Unauthorized");
 
   const user = await fetchQuery(api.user.getUserByClerkId, { clerkId: userId }) as Doc<"users"> | null;
   if (!user) throw new Error("No User Found");
+  if (!user.industry) return undefined;
 
-  if(user.industryInsightId){
-    const insights = await generateAiInsights(user.industry!)
-
+  if (!user.industryInsightId) {
+    const insights = await generateAiInsights(user.industry);
+    
+    const now = Date.now();
     const industryInsight = await fetchMutation(api.industryInsight.create, {
-      industry : user.industry,
+      industry: user.industry,
       ...insights,
-      nextUpdate : Date.now() + 7 * 24 * 60 * 60 * 1000
-    })
+      nextUpdate: now + 7 * 24 * 60 * 60 * 1000
+    });
 
-    return industryInsight
+    if (!industryInsight) return undefined;
+
+    await fetchMutation(api.user.updateUserIndustry, { clerkId : userId , industryId : industryInsight._id})
+    return industryInsight as unknown as Insight;
   }
-  return user.industryInsightId
+
+  const existingInsight = await fetchQuery(api.industryInsight.get, { 
+    insightId: user.industryInsightId 
+  });
+
+  return existingInsight as unknown as Insight;
 }

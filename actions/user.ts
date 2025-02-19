@@ -29,16 +29,16 @@ const updateUser = async ({ data }: updateUserProps) => {
       throw new Error("Industry is required.");
     }
 
-    let industryInsights = await fetchQuery(api.industryInsight.findUnique, { industry: data.industry });
-    if (!industryInsights) {
-      const insights = await generateAiInsights(data.industry!)
+    // let industryInsights = await fetchQuery(api.industryInsight.findUnique, { industry: data.industry });
+    // if (!industryInsights) {
+    //   const insights = await generateAiInsights(data.industry!)
       
-      industryInsights = await fetchMutation(api.industryInsight.create, {
-        industry : data.industry,
-        ...insights,
-        nextUpdate : Date.now() + 7 * 24 * 60 * 60 * 1000
-      })
-    }
+    //   industryInsights = await fetchMutation(api.industryInsight.create, {
+    //     industry : data.industry,
+    //     ...insights,
+    //     nextUpdate : Date.now() + 7 * 24 * 60 * 60 * 1000
+    //   })
+    // }
 
     const updatedUser = await fetchMutation(api.user.updateUserDetails, {
       clerkId: user.clerkId,
@@ -48,7 +48,7 @@ const updateUser = async ({ data }: updateUserProps) => {
       skills: data.skills,
     });
 
-    return { updatedUser, industryInsights, success: true };
+    return { updatedUser,  success: true };
   } catch (error) {
     console.error("Error updating the user:", error);
     throw new Error("Error updating the user");

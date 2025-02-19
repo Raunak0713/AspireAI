@@ -60,7 +60,20 @@ export const updateUserDetails = mutation({
   },
 })
 
-export const updateOldUser = mutation({
-  args : {},
-  handler : async (ctx, args) => {}
+export const updateUserIndustry = mutation({
+  args : {
+    industryId : v.id("industryInsights"),
+    clerkId : v.string()
+  },
+  handler : async (ctx, args) => {
+    const user = await ctx.runQuery(api.user.getUserByClerkId, { clerkId: args.clerkId }) as Doc<"users"> | null;
+    if (!user) throw new Error("No User Found");
+
+    const updatedUser = await ctx.db.patch(user._id, {
+      industryInsightId : args.industryId
+    })
+
+    return updatedUser;
+  }
 })
+
